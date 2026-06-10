@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Espacio Manzana — Arte que transforma</title>
+<style>
+  :root {
+    --red: #C0392B;
+    --teal: #1A6B6B;
+    --amber: #D4A017;
+    --indigo: #2C3E7A;
+    --charcoal: #1A1A2E;
+    --cream: #F5F0E8;
+    --magenta: #9B2460;
+    --dark-teal: #0D4A4A;
+    --white: #FFFFFF;
+    --gray: #888888;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Georgia', serif; background: var(--charcoal); color: var(--white); }
+
+  /* NAV */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 1.2rem 4rem;
+    background: rgba(26,26,46,0.95);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid rgba(192,57,43,0.3);
+  }
+  .nav-logo { font-size: 1.1rem; font-weight: bold; letter-spacing: 0.15em; color: var(--red); text-transform: uppercase; }
+  .nav-links { display: flex; gap: 2rem; align-items: center; }
+  .nav-links a { color: var(--cream); text-decoration: none; font-size: 0.85rem; letter-spacing: 0.08em; text-transform: uppercase; opacity: 0.8; transition: opacity 0.2s; font-family: 'Arial', sans-serif; }
+  .nav-links a:hover { opacity: 1; color: var(--red); }
+  .lang-toggle { 
+    background: transparent; border: 1px solid var(--red); color: var(--red);
+    padding: 0.3rem 0.8rem; font-size: 0.75rem; letter-spacing: 0.1em;
+    cursor: pointer; text-transform: uppercase; font-family: 'Arial', sans-serif;
+    transition: all 0.2s;
+  }
+  .lang-toggle:hover { background: var(--red); color: var(--white); }
+
+  /* HERO */
+  .hero {
+    min-height: 100vh; display: flex; flex-direction: column;
+    justify-content: center; align-items: flex-start;
+    padding: 8rem 4rem 4rem;
+    background: linear-gradient(135deg, var(--charcoal) 0%, #0D1020 60%, #1A0D20 100%);
+    position: relative; overflow: hidden;
+  }
+  .hero::before {
+    content: ''; position: absolute; top: -20%; right: -10%;
+    width: 600px; height: 600px; border-radius: 50%;
+    background: radial-gradient(circle, rgba(192,57,43,0.12) 0%, transparent 70%);
+  }
+  .hero::after {
+    content: ''; position: absolute; bottom: -10%; left: 20%;
+    width: 400px; height: 400px; border-radius: 50%;
+    background: radial-gradient(circle, rgba(26,107,107,0.1) 0%, transparent 70%);
+  }
+  .hero-eyebrow {
+    font-family: 'Arial', sans-serif; font-size: 0.75rem;
+    letter-spacing: 0.25em; text-transform: uppercase;
+    color: var(--red); margin-bottom: 1.5rem; opacity: 0.9;
+  }
+  .hero h1 {
+    font-size: clamp(2.8rem, 6vw, 5.5rem); line-height: 1.05;
+    font-weight: normal; max-width: 800px; margin-bottom: 0.3rem;
+    color: var(--white);
+  }
+  .hero h1 span { color: var(--red); }
+  .hero-tagline {
+    font-family: 'Arial', sans-serif; font-size: clamp(1rem, 2vw, 1.3rem);
+    color: var(--gray); margin: 1.5rem 0 2.5rem; max-width: 600px;
+    line-height: 1.6; font-style: italic;
+  }
+  .hero-tagline .en { font-size: 0.9em; opacity: 0.7; display: block; margin-top: 0.3rem; }
+  .hero-cta {
+    display: flex; gap: 1rem; flex-wrap: wrap;
+  }
+  .btn-primary {
+    background: var(--red); color: var(--white); border: none;
+    padding: 0.9rem 2.2rem; font-family: 'Arial', sans-serif;
+    font-size: 0.85rem; letter-spacing: 0.1em; text-transform: uppercase;
+    cursor: pointer; text-decoration: none; display: inline-block;
+    transition: background 0.2s;
+  }
+  .btn-primary:hover { background: #a93226; }
+  .btn-outline {
+    background: transparent; color: var(--cream); border: 1px solid rgba(245,240,232,0.4);
+    padding: 0.9rem 2.2rem; font-family: 'Arial', sans-serif;
+    font-size: 0.85rem; letter-spacing: 0.1em; text-transform: uppercase;
+    cursor: pointer; text-decoration: none; display: inline-block;
+    transition: all 0.2s;
+  }
+  .btn-outline:hover { border-color: var(--cream); }
+  .hero-scroll {
+    position: absolute; bottom: 2rem; left: 4rem;
+    font-family: 'Arial', sans-serif; font-size: 0.7rem;
+    letter-spacing: 0.2em; text-transform: uppercase; color: var(--gray);
+  }
+
+  /* SECTIONS */
+  section { padding: 6rem 4rem; }
+  .section-label {
+    font-family: 'Arial', sans-serif; font-size: 0.7rem;
+    letter-spacing: 0.3em; text-transform: uppercase;
+    color: var(--red); margin-bottom: 1rem;
+  }
+  h2.section-title {
+    font-size: clamp(1.8rem, 3.5vw, 3rem); font-weight: normal;
+    line-height: 1.15; margin-bottom: 0.5rem; color: var(--white);
+  }
+  h2.section-title .en {
+    display: block; font-size: 0.5em; color: var(--gray);
+    font-family: 'Arial', sans-serif; margin-top: 0.4rem; font-style: italic;
+  }
+  .section-body {
+    font-family: 'Arial', sans-serif; font-size: 1rem; line-height: 1.8;
+    color: rgba(245,240,232,0.75); max-width: 680px; margin-top: 1.5rem;
+  }
+  .section-body .en { display: block; margin-top: 0.8rem; font-style: italic; opacity: 0.7; }
+
+  /* PILLARS */
+  .pillars-section { background: #12121F; }
+  .pillars-grid {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 1px; margin-top: 3rem;
+    border: 1px solid rgba(255,255,255,0.06);
+  }
+  .pillar-card {
+    background: #1A1A2E; padding: 2.5rem 2rem;
+    border-bottom: 3px solid transparent;
+    transition: border-color 0.3s, background 0.3s;
+    cursor: default;
+  }
+  .pillar-card:hover { background: #1E1E35; }
+  .pillar-card.artivism { border-color: var(--red); }
+  .pillar-card.education { border-color: var(--teal); }
+  .pillar-card.sustainability { border-color: var(--amber); }
+  .pillar-card.community { border-color: var(--magenta); }
+  .pillar-card.innovation { border-color: var(--indigo); }
+  .pillar-icon { font-size: 2rem; margin-bottom: 1.2rem; }
+  .pillar-name {
+    font-family: 'Arial', sans-serif; font-size: 0.7rem;
+    letter-spacing: 0.25em; text-transform: uppercase;
+    color: var(--gray); margin-bottom: 0.5rem;
+  }
+  .pillar-title {
+    font-size: 1.3rem; font-weight: normal; margin-bottom: 1rem; color: var(--white);
+  }
+  .pillar-desc {
+    font-family: 'Arial', sans-serif; font-size: 0.88rem;
+    line-height: 1.7; color: rgba(245,240,232,0.65);
+  }
+  .pillar-desc .en { display: block; margin-top: 0.6rem; font-style: italic; opacity: 0.75; }
+
+  /* ABOUT */
+  .about-section { background: var(--charcoal); }
+  .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center; margin-top: 3rem; }
+  .about-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-top: 2.5rem; }
+  .stat { border-left: 3px solid var(--red); padding-left: 1.2rem; }
+  .stat-num { font-size: 2.2rem; color: var(--white); line-height: 1; }
+  .stat-label { font-family: 'Arial', sans-serif; font-size: 0.78rem; color: var(--gray); margin-top: 0.3rem; line-height: 1.4; }
+  .about-visual {
+    background: linear-gradient(135deg, #1A1A2E, #0D1020);
+    border: 1px solid rgba(192,57,43,0.2);
+    aspect-ratio: 4/5; display: flex; align-items: center; justify-content: center;
+    font-size: 6rem; opacity: 0.6;
+  }
+
+  /* ERASMUS */
+  .erasmus-section { background: #0D0D1A; }
+  .erasmus-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; margin-top: 3rem; }
+  .erasmus-card {
+    border: 1px solid rgba(255,255,255,0.08); padding: 2rem;
+    background: rgba(255,255,255,0.02);
+  }
+  .erasmus-badge {
+    font-family: 'Arial', sans-serif; font-size: 0.65rem; letter-spacing: 0.2em;
+    text-transform: uppercase; background: var(--indigo); color: var(--white);
+    padding: 0.25rem 0.6rem; display: inline-block; margin-bottom: 1rem;
+  }
+  .erasmus-card h3 { font-size: 1.05rem; font-weight: normal; margin-bottom: 0.8rem; color: var(--cream); }
+  .erasmus-card p { font-family: 'Arial', sans-serif; font-size: 0.85rem; line-height: 1.6; color: var(--gray); }
+
+  /* CTA SECTION */
+  .cta-section {
+    background: linear-gradient(135deg, var(--red) 0%, var(--magenta) 100%);
+    text-align: center; padding: 6rem 4rem;
+  }
+  .cta-section h2 { font-size: clamp(2rem, 4vw, 3.5rem); font-weight: normal; color: var(--white); margin-bottom: 1rem; }
+  .cta-section p { font-family: 'Arial', sans-serif; color: rgba(255,255,255,0.85); font-size: 1.05rem; margin-bottom: 2.5rem; }
+  .btn-white { background: var(--white); color: var(--red); border: none; padding: 1rem 2.5rem; font-family: 'Arial', sans-serif; font-size: 0.85rem; letter-spacing: 0.1em; text-transform: uppercase; cursor: pointer; text-decoration: none; display: inline-block; transition: opacity 0.2s; }
+  .btn-white:hover { opacity: 0.9; }
+
+  /* CONTACT */
+  .contact-section { background: var(--charcoal); }
+  .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; margin-top: 3rem; }
+  .contact-item { display: flex; flex-direction: column; gap: 0.3rem; margin-bottom: 1.5rem; }
+  .contact-label { font-family: 'Arial', sans-serif; font-size: 0.7rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gray); }
+  .contact-value { font-family: 'Arial', sans-serif; font-size: 1rem; color: var(--cream); }
+  .contact-value a { color: var(--red); text-decoration: none; }
+  .contact-value a:hover { text-decoration: underline; }
+  .contact-form { display: flex; flex-direction: column; gap: 1rem; }
+  .contact-form input, .contact-form textarea {
+    background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1);
+    color: var(--white); padding: 0.9rem 1rem; font-family: 'Arial', sans-serif; font-size: 0.9rem;
+    outline: none; width: 100%;
+  }
+  .contact-form input:focus, .contact-form textarea:focus { border-color: var(--red); }
+  .contact-form textarea { min-height: 130px; resize: vertical; }
+  .contact-form ::placeholder { color: var(--gray); }
+
+  /* FOOTER */
+  footer {
+    background: #0A0A14; padding: 2.5rem 4rem;
+    display: flex; justify-content: space-between; align-items: center;
+    border-top: 1px solid rgba(255,255,255,0.06);
+    font-family: 'Arial', sans-serif; font-size: 0.8rem; color: var(--gray);
+  }
+  footer a { color: var(--gray); text-decoration: none; }
+  footer a:hover { color: var(--red); }
+
+  /* RESPONSIVE */
+  @media (max-width: 768px) {
+    nav { padding: 1rem 1.5rem; }
+    .nav-links { display: none; }
+    section { padding: 4rem 1.5rem; }
+    .hero { padding: 7rem 1.5rem 3rem; }
+    .about-grid, .contact-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+    .about-visual { display: none; }
+    footer { flex-direction: column; gap: 1rem; text-align: center; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">Espacio Manzana</div>
+  <div class="nav-links">
+    <a href="#pillars">Pilares</a>
+    <a href="#about">Sobre Nosotros</a>
+    <a href="#projects">Proyectos</a>
+    <a href="#contact">Contacto</a>
+    <button class="lang-toggle" onclick="toggleLang()">EN / ES</button>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-eyebrow">Asociación Cultural · Granada, España</div>
+  <h1>Espacio<br><span>Manzana</span></h1>
+  <div class="hero-tagline">
+    Arte que transforma. Comunidad que perdura.
+    <span class="en">Art that transforms. Community that endures.</span>
+  </div>
+  <div class="hero-cta">
+    <a href="#contact" class="btn-primary">Únete / Join us</a>
+    <a href="#pillars" class="btn-outline">Nuestros pilares / Our pillars</a>
+  </div>
+  <div class="hero-scroll">↓ Scroll</div>
+</section>
+
+<!-- PILLARS -->
+<section class="pillars-section" id="pillars">
+  <div class="section-label">Lo que hacemos / What we do</div>
+  <h2 class="section-title">Nuestros Pilares
+    <span class="en">Our Pillars</span>
+  </h2>
+  <div class="section-body">
+    Apoyamos a artistas y profesionales culturales a través de cinco ejes de acción.
+    <span class="en">We support artists and cultural professionals through five axes of action.</span>
+  </div>
+  <div class="pillars-grid">
+    <div class="pillar-card artivism">
+      <div class="pillar-icon">✊</div>
+      <div class="pillar-name">Pilar 01</div>
+      <div class="pillar-title">Artivismo / Artivism</div>
+      <div class="pillar-desc">
+        El arte como herramienta de cambio social. Apoyamos prácticas que transforman realidades.
+        <span class="en">Art as a tool for social change. We support practices that transform realities.</span>
+      </div>
+    </div>
+    <div class="pillar-card education">
+      <div class="pillar-icon">📚</div>
+      <div class="pillar-name">Pilar 02</div>
+      <div class="pillar-title">Educación / Education</div>
+      <div class="pillar-desc">
+        Formación en arte, negocios creativos, sostenibilidad y tecnologías emergentes.
+        <span class="en">Training in art, creative business, sustainability and emerging technologies.</span>
+      </div>
+    </div>
+    <div class="pillar-card sustainability">
+      <div class="pillar-icon">🌱</div>
+      <div class="pillar-name">Pilar 03</div>
+      <div class="pillar-title">Sostenibilidad / Sustainability</div>
+      <div class="pillar-desc">
+        Prácticas sostenibles en la gestión cultural y modelos de trabajo responsables.
+        <span class="en">Sustainable practices in cultural management and responsible working models.</span>
+      </div>
+    </div>
+    <div class="pillar-card community">
+      <div class="pillar-icon">🤝</div>
+      <div class="pillar-name">Pilar 04</div>
+      <div class="pillar-title">Comunidad / Community</div>
+      <div class="pillar-desc">
+        Redes de apoyo entre artistas internacionales e independientes basados en España.
+        <span class="en">Support networks among international and independent artists based in Spain.</span>
+      </div>
+    </div>
+    <div class="pillar-card innovation">
+      <div class="pillar-icon">⚡</div>
+      <div class="pillar-name">Pilar 05</div>
+      <div class="pillar-title">Innovación / Innovation</div>
+      <div class="pillar-desc">
+        Tecnologías emergentes — incluyendo IA — al servicio de la práctica artística.
+        <span class="en">Emerging technologies — including AI — in service of artistic practice.</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="about-section" id="about">
+  <div class="section-label">Quiénes somos / Who we are</div>
+  <div class="about-grid">
+    <div>
+      <h2 class="section-title">Sobre Nosotros
+        <span class="en">About Us</span>
+      </h2>
+      <div class="section-body">
+        Espacio Manzana nació de la convicción de que los artistas internacionales en España necesitan más que visibilidad: necesitan estructura, comunidad y herramientas. Somos una asociación cultural registrada, completamente virtual, con sede en La Herradura, Granada. Trabajamos a través de proyectos europeos Erasmus+ y colaboraciones internacionales, con el artivismo como alma y la innovación como motor.
+        <span class="en">Espacio Manzana was born from the conviction that international artists in Spain need more than visibility — they need structure, community, and tools. We are a registered cultural association, fully virtual, based in La Herradura, Granada.</span>
+      </div>
+      <div class="about-stats">
+        <div class="stat">
+          <div class="stat-num">3</div>
+          <div class="stat-label">Proyectos Erasmus+ / Erasmus+ Projects</div>
+        </div>
+        <div class="stat">
+          <div class="stat-num">5</div>
+          <div class="stat-label">Pilares de acción / Action pillars</div>
+        </div>
+        <div class="stat">
+          <div class="stat-num">EU</div>
+          <div class="stat-label">Plataforma europea / EU Platform registered</div>
+        </div>
+        <div class="stat">
+          <div class="stat-num">∞</div>
+          <div class="stat-label">Red internacional / International network</div>
+        </div>
+      </div>
+    </div>
+    <div class="about-visual">🍎</div>
+  </div>
+</section>
+
+<!-- ERASMUS PROJECTS -->
+<section class="erasmus-section" id="projects">
+  <div class="section-label">Proyectos europeos / European projects</div>
+  <h2 class="section-title">Erasmus+
+    <span class="en">Active Projects</span>
+  </h2>
+  <div class="section-body">
+    Participamos activamente en la convocatoria Erasmus+ como solicitantes directos y como miembros de consorcio.
+    <span class="en">We actively participate in Erasmus+ as direct applicants and as consortium members.</span>
+  </div>
+  <div class="erasmus-grid">
+    <div class="erasmus-card">
+      <div class="erasmus-badge">KA210 · Direct Application</div>
+      <h3>Small Scale Partnership</h3>
+      <p>Proyecto de pequeña escala presentado directamente por Espacio Manzana. Resultados pendientes. / Small scale project applied directly by Espacio Manzana. Results pending.</p>
+    </div>
+    <div class="erasmus-card">
+      <div class="erasmus-badge">Erasmus+ · Consortium</div>
+      <h3>Proyecto en Consorcio I</h3>
+      <p>Participación como socio en proyecto de consorcio europeo. Resultados pendientes. / Participation as partner in a European consortium project. Results pending.</p>
+    </div>
+    <div class="erasmus-card">
+      <div class="erasmus-badge">Erasmus+ · Consortium</div>
+      <h3>Proyecto en Consorcio II</h3>
+      <p>Segunda colaboración como socio en consorcio internacional. Resultados pendientes. / Second collaboration as partner in an international consortium. Results pending.</p>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section">
+  <h2>Únete al movimiento.</h2>
+  <p>Arte que transforma. Comunidad que perdura. / Art that transforms. Community that endures.</p>
+  <a href="#contact" class="btn-white">Contáctanos / Get in touch</a>
+</section>
+
+<!-- CONTACT -->
+<section class="contact-section" id="contact">
+  <div class="section-label">Contacto / Contact</div>
+  <h2 class="section-title">Hablemos
+    <span class="en">Let's talk</span>
+  </h2>
+  <div class="contact-grid">
+    <div>
+      <div class="contact-item">
+        <div class="contact-label">Email</div>
+        <div class="contact-value"><a href="mailto:mail.espacio.manzana@gmail.com">mail.espacio.manzana@gmail.com</a></div>
+      </div>
+      <div class="contact-item">
+        <div class="contact-label">Instagram</div>
+        <div class="contact-value"><a href="https://instagram.com/espacio.manzana" target="_blank">@espacio.manzana</a></div>
+      </div>
+      <div class="contact-item">
+        <div class="contact-label">Ubicación / Location</div>
+        <div class="contact-value">La Herradura, Granada, Andalusia, España</div>
+      </div>
+      <div class="contact-item">
+        <div class="contact-label">Organización / Organisation</div>
+        <div class="contact-value">Asociación Cultural registrada · Registered Cultural Association</div>
+      </div>
+    </div>
+    <div>
+      <div class="contact-form">
+        <input type="text" placeholder="Nombre / Name"/>
+        <input type="email" placeholder="Email"/>
+        <textarea placeholder="Mensaje / Message — cuéntanos sobre ti y tu práctica artística / tell us about yourself and your artistic practice"></textarea>
+        <a href="mailto:mail.espacio.manzana@gmail.com" class="btn-primary" style="text-align:center;">Enviar / Send</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div>© 2024 Espacio Manzana · La Herradura, Granada, España</div>
+  <div>
+    <a href="mailto:mail.espacio.manzana@gmail.com">mail.espacio.manzana@gmail.com</a>
+    &nbsp;·&nbsp;
+    <a href="https://instagram.com/espacio.manzana" target="_blank">@espacio.manzana</a>
+  </div>
+</footer>
+
+<script>
+function toggleLang() {
+  const enEls = document.querySelectorAll('.en');
+  const btn = document.querySelector('.lang-toggle');
+  const hidden = enEls[0].style.display === 'none';
+  enEls.forEach(el => el.style.display = hidden ? '' : 'none');
+  btn.textContent = hidden ? 'ES only' : 'EN / ES';
+}
+</script>
+</body>
+</html>
