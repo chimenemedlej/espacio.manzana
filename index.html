@@ -1,0 +1,411 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Espacio Manzana — Arte que transforma</title>
+<meta name="description" content="Espacio Manzana is an artivism association using art as a method for solidarity with the Global South and marginalised communities across Spain, rooted in Andalucía.">
+
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://espaciomanzana.org">
+<meta property="og:title" content="Espacio Manzana — Arte que transforma">
+<meta property="og:description" content="Art is the method. Solidarity is the purpose. An artivism association rooted in Andalucía, reaching the marginalised across Spain and into Lebanon, Palestine and Syria.">
+<meta property="og:image" content="https://espaciomanzana.org/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Espacio Manzana — Arte que transforma">
+<meta name="twitter:description" content="Art is the method. Solidarity is the purpose.">
+<meta name="twitter:image" content="https://espaciomanzana.org/og-image.png">
+
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,900;1,400;1,900&family=Amatic+SC:wght@700&display=swap">
+
+<style>
+  :root {
+    --fire-red: #A01E20;
+    --porcelain: #F3ECE0;
+    --teal: #00746A;
+    --dark-grey: #2D2D2D;
+    --amber: #F59D00;
+    --indigo: #3F51B5;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body {
+    font-family: 'Playfair Display', serif;
+    background: var(--dark-grey);
+  }
+  a { color: inherit; }
+
+  @keyframes tickerScroll { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+
+  .band { border-radius: 20px; cursor: pointer; transition: transform 0.35s cubic-bezier(0.22,1,0.36,1), box-shadow 0.35s ease; }
+  .band .expand { display: none !important; }
+  .band.is-open .expand { display: block !important; }
+  .band.is-open .expand.expand-flex { display: flex !important; }
+  .tile { transition: transform 0.3s ease, box-shadow 0.3s ease; }
+  .cta-pill { transition: transform 0.2s ease; text-decoration: none; display: block; }
+
+  /* ===================== DESKTOP (>= 821px) ===================== */
+  .site-desktop { width: 1440px; margin: 0 auto; background: var(--dark-grey); }
+  .site-desktop .band { border-radius: 20px; }
+  .site-desktop .band:hover { transform: scale(1.03) translateY(-6px); box-shadow: 0 30px 46px rgba(0,0,0,0.5) !important; z-index: 12 !important; }
+  .site-desktop .tile:hover { transform: scale(1.025); box-shadow: 0 20px 34px rgba(0,0,0,0.4); z-index: 6; position: relative; }
+  .site-desktop .cta-pill:hover { transform: scale(1.03); }
+
+  /* ===================== MOBILE (<= 820px) ===================== */
+  .site-mobile { display: none; }
+  .site-mobile .band { border-radius: 16px; transition: box-shadow 0.25s ease; }
+  .site-mobile .band:active { box-shadow: 0 4px 10px rgba(0,0,0,0.35) !important; }
+  .site-mobile .tile { border-radius: 4px; }
+
+  @media (max-width: 820px) {
+    .site-desktop { display: none; }
+    .site-mobile { display: block; width: 390px; max-width: 100%; margin: 0 auto; background: var(--dark-grey); }
+  }
+  @media (min-width: 821px) {
+    body { overflow-x: auto; }
+  }
+</style>
+</head>
+<body>
+
+<!-- =========================================================== -->
+<!-- DESKTOP                                                      -->
+<!-- =========================================================== -->
+<div class="site-desktop">
+
+  <!-- NAV -->
+  <div style="display: flex; align-items: center; justify-content: space-between; height: 96px; padding: 0 56px;">
+    <div style="font-family: 'Amatic SC', cursive; font-weight: 700; font-size: 60px; color: var(--porcelain); letter-spacing: 0.02em">ESPACIO MANZANA</div>
+    <div style="display: flex; align-items: center; border: 1px solid rgba(243,236,224,0.3); border-radius: 20px; padding: 5px; gap: 2px;">
+      <div style="background: var(--fire-red); color: var(--porcelain); font-size: 11.5px; font-weight: 600; letter-spacing: 0.03em; padding: 5px 12px; border-radius: 14px;">EN</div>
+      <div style="color: var(--porcelain); opacity: 0.5; font-size: 11.5px; font-weight: 600; letter-spacing: 0.03em; padding: 5px 12px;">ES</div>
+    </div>
+  </div>
+
+  <!-- TICKER -->
+  <div style="background: var(--indigo); overflow: hidden; white-space: nowrap; padding: 11px 0;">
+    <div style="display: inline-block; animation: tickerScroll 14s linear infinite;">
+      <span style="font-size: 17px; font-weight: 700; letter-spacing: 0.08em; color: #dfe44b; padding: 0 24px">★ BREAKING: ART DOESN'T WAIT FOR PERMISSION ★ ESPACIO MANZANA IS RECRUITING ARTISTS WHO WON'T STAY SILENT IN THE FACE OF INJUSTICE ★ BREAKING: ART DOESN'T WAIT FOR PERMISSION ★ ESPACIO MANZANA IS RECRUITING ARTISTS WHO WON'T STAY SILENT IN THE FACE OF INJUSTICE ★</span>
+    </div>
+  </div>
+
+  <!-- STAMP BADGE -->
+  <div style="position: relative;">
+    <div style="position: absolute; top: 18px; right: 66px; width: 82px; height: 82px; border-radius: 50%; border: 2px solid var(--porcelain); display: flex; align-items: center; justify-content: center; transform: rotate(-17deg); z-index: 30;">
+      <img src="em-logo-full-porcelain.png" alt="Espacio Manzana seal" style="width: 50px; height: 49px; display: block">
+    </div>
+  </div>
+
+  <!-- STACKED BLOCKS -->
+  <div style="position: relative; padding: 70px 0 130px;">
+
+    <!-- 1. MISSION -->
+    <div class="band" data-band="mission" style="position: relative; z-index: 5; margin: 0 40px 0 56px; padding: 30px 44px; display: flex; flex-direction: column; gap: 18px; background-color: #A01E20; box-shadow: 0 14px 24px rgba(0,0,0,0.3);">
+      <div style="display: flex; align-items: center; justify-content: space-between;">
+        <div style="font-weight: 900; font-size: 56px; line-height: 1; color: #F3ECE0">PICK A SIDE.</div>
+        <img src="seed-porcelain.png" alt="" style="width: 34px; height: auto; display: block;">
+      </div>
+      <div class="expand" style="max-width: 640px; font-weight: 400; font-size: 16px; line-height: 1.7; color: #f3ece0; border-top: 1px solid rgba(45,45,45,0.2); padding-top: 18px">Neutrality is a choice too, and not an innocent one. Espacio Manzana uses art as a method to walk in solidarity with the Global South and the marginalised communities in the south of Spain, giving platform to the people and causes the world too often looks away from. We don't try to convince the unconvinced. This space is for the ones who've already chosen.</div>
+      <div data-label data-expanded-text="SEEN ENOUGH? ↑" style="font-size: 11px; letter-spacing: 0.06em; color: #F3ECE0; opacity: 0.6">CLICK FOR MORE ↓</div>
+    </div>
+
+    <!-- 2. METHOD -->
+    <div class="band" data-band="method" style="position: relative; z-index: 4; margin: -18px 76px 0 106px; padding: 30px 44px; display: flex; flex-direction: column; gap: 18px; background-color: #F3ECE0; box-shadow: 0 14px 24px rgba(0,0,0,0.3);">
+      <div style="display: flex; align-items: center; justify-content: space-between;">
+        <div style="font-weight: 900; font-size: 40px; line-height: 1; color: #2D2D2D">ART AS THE METHOD</div>
+        <img src="seed-darkgrey.png" alt="" style="width: 34px; height: auto; display: block;">
+      </div>
+      <div class="expand" style="max-width: 640px; font-weight: 400; font-size: 16px; line-height: 1.7; color: #2d2d2d; border-top: 1px solid rgba(243,236,224,0.3); padding-top: 18px">We don't platform art for art's sake. We work with artists, for the communities the mainstream overlooks, rooted in Andalucía, reaching the marginalised across Spain, and extending to Lebanon, Palestine, and Syria. Does your art belong here?</div>
+      <div data-label data-expanded-text="GOT IT ↑" style="font-size: 11px; letter-spacing: 0.06em; color: #2D2D2D; opacity: 0.6">CLICK FOR MORE ↓</div>
+    </div>
+
+    <!-- 3. COMMUNITY -->
+    <div class="band" data-band="community" style="position: relative; z-index: 3; background: var(--teal); margin: -18px 56px 0 76px; padding: 30px 44px; display: flex; flex-direction: column; gap: 18px; box-shadow: 0 14px 24px rgba(0,0,0,0.3);">
+      <div style="display: flex; align-items: center; justify-content: space-between;">
+        <div style="font-family: 'Amatic SC', cursive; font-weight: 700; font-size: 84px; line-height: 0.9; color: var(--amber);">YOU BELONG HERE</div>
+        <img src="seed-amber.png" alt="" style="width: 34px; height: auto; display: block;">
+      </div>
+      <div class="expand expand-flex" style="border-top: 1px solid rgba(243,236,224,0.3); padding-top: 18px; flex-wrap: wrap; gap: 14px;">
+        <a class="cta-pill" href="mailto:mail.espacio.manzana@gmail.com?subject=Joining%20the%20Espacio%20Manzana%20community" style="background: var(--porcelain); color: var(--teal); padding: 15px 24px; border-radius: 30px; font-weight: 600; font-size: 15px; text-align: center;">&nbsp; &nbsp; &nbsp; &nbsp; Artists &amp; Artivists <br><br>~ JOIN OUR COMMUNITY ~</a>
+        <a class="cta-pill" href="mailto:mail.espacio.manzana@gmail.com?subject=Collaboration%20with%20Espacio%20Manzana" style="background: var(--porcelain); color: var(--teal); padding: 15px 24px; border-radius: 30px; font-weight: 600; font-size: 15px; text-align: center;">Collaborators &amp; Partners<br><br>&nbsp; &nbsp; &nbsp;~ GET IN TOUCH ~</a>
+      </div>
+      <div data-label data-expanded-text="MAYBE LATER ↑" style="font-size: 11px; letter-spacing: 0.06em; color: var(--porcelain); opacity: 0.75;">JOIN OUR COMMUNITY ↓</div>
+    </div>
+
+    <!-- 4. PROJECTS -->
+    <div class="band" data-band="projects" style="position: relative; z-index: 2; background: var(--amber); margin: -18px 96px 0 116px; padding: 30px 44px; display: flex; flex-direction: column; gap: 22px; box-shadow: 0 14px 24px rgba(0,0,0,0.3);">
+      <div style="display: flex; align-items: center; justify-content: space-between;">
+        <div style="font-weight: 700; font-size: 40px; line-height: 0.95; color: var(--dark-grey)">PROJECTS AND WORK IN PROGRESS</div>
+        <img src="seed-darkgrey.png" alt="" style="width: 34px; height: auto; display: block; flex-shrink: 0;">
+      </div>
+
+      <div class="expand" style="border-top: 1px solid rgba(45,45,45,0.25); padding-top: 22px;">
+        <div style="display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); grid-auto-rows: 84px; gap: 14px;">
+
+          <div class="tile" style="grid-column: 1 / 5; grid-row: 1 / 4; background: var(--dark-grey); padding: 24px; display: flex; flex-direction: column; justify-content: center; gap: 6px;">
+            <div style="font-size: 10.5px; letter-spacing: 0.1em; color: var(--amber); text-transform: uppercase;">Fundraising event</div>
+            <div style="font-weight: 900; font-size: 40px; line-height: 1; color: var(--porcelain);">FEB 2027</div>
+            <div style="font-weight: 700; font-size: 17px; color: var(--porcelain); margin-top: 4px;">The Ecology of Activism</div>
+            <div style="font-size: 12px; color: var(--porcelain); opacity: 0.65;">Stay tuned.</div>
+          </div>
+
+          <div class="tile" style="grid-column: 5 / 7; grid-row: 1 / 4; border: 1px dashed #2d2d2d; display: flex; align-items: center; justify-content: center; text-align: center; padding: 12px;">
+            <div style="font-size: 11px; color: var(--dark-grey); opacity: 0.6; letter-spacing: 0.05em; line-height: 1.5;">EVENT PHOTOS<br>COMING FEB 2027</div>
+          </div>
+
+          <div class="tile" style="grid-column: 1 / 4; grid-row: 4 / 6; padding: 20px 22px; display: flex; flex-direction: column; justify-content: center; gap: 6px; background-color: transparent; border: 1px dotted #2d2d2d;">
+            <div style="font-weight: 700; font-size: 16px; color: #2d2d2d; line-height: 1.2">A new home for marginalised voices</div>
+            <div style="font-size: 11.5px; color: #2d2d2d; opacity: 0.8; line-height: 1.4">An art platform partnership supporting artists across Spain and the SWANA region is in the works.</div>
+            <div style="font-weight: 600; font-size: 11.5px; color: #f3ece0; margin-top: 2px; display: inline-block; padding: 4px 8px; background-color: #2D2D2D;">Want in? Contact us →</div>
+          </div>
+
+          <div class="tile" style="grid-column: 4 / 6; grid-row: 4 / 6; border: 1px dashed rgba(45,45,45,0.4); display: flex; align-items: center; justify-content: center; text-align: center; padding: 12px; background-color: #00746A; color: #f3ece0">
+            <div style="font-size: 11px; color: #f3ece0; opacity: 0.6; letter-spacing: 0.05em; line-height: 1.5">PARTNERSHIP PHOTOS<br>COMING SOON</div>
+          </div>
+
+          <div class="tile" style="grid-column: 6 / 7; grid-row: 4 / 6; background: var(--fire-red); display: flex; align-items: center; justify-content: center;">
+            <img src="seed-porcelain.png" alt="" style="width: 30px; height: auto; display: block;">
+          </div>
+
+          <div class="tile" style="grid-column: 1 / 4; grid-row: 6 / 8; background: var(--fire-red); padding: 22px 24px; display: flex; align-items: center;">
+            <div style="font-weight: 900; font-size: 19px; line-height: 1.3; color: var(--porcelain)">We measure success in causes moved, not audiences built.</div>
+          </div>
+
+          <div class="tile" style="grid-column: 4 / 7; grid-row: 6 / 8; background: var(--porcelain); border: 1px solid rgba(45,45,45,0.2); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 4px;">
+            <div style="font-size: 10.5px; letter-spacing: 0.1em; color: var(--dark-grey); opacity: 0.55; text-transform: uppercase;">Follow along</div>
+            <div style="font-weight: 700; font-size: 16px; color: var(--dark-grey);">@espacio.manzana</div>
+          </div>
+
+        </div>
+      </div>
+
+      <div data-label data-expanded-text="CLOSE THE GRID ↑" style="font-size: 11px; letter-spacing: 0.06em; color: var(--dark-grey); opacity: 0.65;">CLICK TO SEE THE GRID ↓</div>
+    </div>
+
+    <!-- 5. NOTES FROM THE APPLE -->
+    <div class="band" data-band="notes" style="position: relative; z-index: 1; background-color: #3F51B5; margin: -18px 80px 0 60px; padding: 30px 44px; display: flex; flex-direction: column; gap: 18px; box-shadow: 0 14px 24px rgba(0,0,0,0.3);">
+      <div style="display: flex; align-items: center; justify-content: space-between;">
+        <div style="font-weight: 900; font-style: italic; font-size: 50px; line-height: 1; color: var(--amber);"><span style="font-style: normal; color: #F3ECE0; font-size: 45px; font-family: 'Amatic SC', cursive;">Notes from the Apple</span></div>
+        <img src="seed-porcelain.png" alt="" style="width: 34px; height: auto; display: block; flex-shrink: 0;">
+      </div>
+      <div data-label data-expanded-text="THAT'S ALL FOR NOW ↑" style="font-size: 11px; letter-spacing: 0.06em; color: var(--porcelain); opacity: 0.65;">CLICK FOR A PEEK ↓</div>
+      <div class="expand" style="max-width: 640px; font-weight: 400; font-size: 16px; line-height: 1.7; color: var(--porcelain); border-top: 1px solid rgba(243,236,224,0.25); padding-top: 18px;">Coming soon. Longer-form writing on artivism, straight on our Substack account. <br>Follow us on IG for now <a href="https://instagram.com/espacio.manzana" target="_blank" rel="noopener noreferrer" style="color: var(--amber); text-decoration: underline;">@espacio.manzana</a>&nbsp;:)</div>
+    </div>
+
+  </div>
+
+  <!-- CONTACT / FOOTER -->
+  <div style="padding: 60px 56px 40px;">
+    <div style="display: flex; justify-content: space-between; align-items: flex-start; padding-bottom: 56px; border-bottom: 1px solid rgba(243,236,224,0.15);">
+      <div style="font-family: 'Amatic SC', cursive; font-weight: 700; font-size: 52px; line-height: 1; color: var(--porcelain);">Let's talk.</div>
+      <div style="display: flex; gap: 72px;">
+        <div style="display: flex; flex-direction: column; gap: 8px;">
+          <div style="font-size: 11px; letter-spacing: 0.1em; color: var(--amber); text-transform: uppercase;">Email</div>
+          <div style="font-size: 14px; color: var(--porcelain);">mail.espacio.manzana@gmail.com</div>
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 8px;">
+          <div style="font-size: 11px; letter-spacing: 0.1em; color: var(--amber); text-transform: uppercase;">Instagram</div>
+          <div style="font-size: 14px; color: var(--porcelain);">@espacio.manzana</div>
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 8px;">
+          <div style="font-size: 11px; letter-spacing: 0.1em; color: var(--amber); text-transform: uppercase;">Location</div>
+          <div style="font-size: 14px; color: var(--porcelain);">La Herradura, Granada, Spain</div>
+        </div>
+      </div>
+    </div>
+
+    <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 20px; padding-top: 26px;">
+      <div style="display: flex; align-items: center; gap: 16px;">
+        <img src="junta-andalucia-logo.png" alt="Junta de Andalucía" style="height: 26px; width: auto; display: block; opacity: 0.92;">
+        <div style="font-size: 10.5px; line-height: 1.5; color: var(--porcelain); opacity: 0.5;">Registro de Asociaciones de Andalucía · Nº 18/12449-1ª, Sección Primera<br>Almuñécar, Granada</div>
+      </div>
+      <div style="display: flex; align-items: center; gap: 18px;">
+        <div style="font-size: 12px; color: var(--porcelain); opacity: 0.45;">© 2026 Espacio Manzana</div>
+        <a href="https://instagram.com/espacio.manzana" target="_blank" rel="noopener noreferrer" aria-label="Espacio Manzana on Instagram" style="width: 30px; height: 30px; border-radius: 50%; border: 1.5px solid rgba(243,236,224,0.4); display: flex; align-items: center; justify-content: center; cursor: pointer;">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none"><rect x="2" y="2" width="20" height="20" rx="6" stroke="#F3ECE0" stroke-width="1.8"></rect><circle cx="12" cy="12" r="5" stroke="#F3ECE0" stroke-width="1.8"></circle><circle cx="18" cy="6" r="1.2" fill="#F3ECE0"></circle></svg>
+        </a>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- =========================================================== -->
+<!-- MOBILE                                                       -->
+<!-- =========================================================== -->
+<div class="site-mobile">
+
+  <!-- NAV -->
+  <div style="display: flex; align-items: center; justify-content: space-between; height: 64px; padding: 0 18px;">
+    <div style="font-family: 'Amatic SC', cursive; font-weight: 700; font-size: 30px; color: var(--porcelain); letter-spacing: 0.02em">ESPACIO MANZANA</div>
+    <div style="display: flex; align-items: center; border: 1px solid rgba(243,236,224,0.3); border-radius: 16px; padding: 4px; gap: 2px;">
+      <div style="background: var(--fire-red); color: var(--porcelain); font-size: 9.5px; font-weight: 600; letter-spacing: 0.03em; padding: 4px 9px; border-radius: 12px;">EN</div>
+      <div style="color: var(--porcelain); opacity: 0.5; font-size: 9.5px; font-weight: 600; letter-spacing: 0.03em; padding: 4px 9px;">ES</div>
+    </div>
+  </div>
+
+  <!-- TICKER -->
+  <div style="background: var(--indigo); overflow: hidden; white-space: nowrap; padding: 9px 0;">
+    <div style="display: inline-block; animation: tickerScroll 16s linear infinite;">
+      <span style="font-size: 12px; font-weight: 700; letter-spacing: 0.05em; color: #dfe44b; padding: 0 16px">★ BREAKING: ART DOESN'T WAIT FOR PERMISSION ★ ESPACIO MANZANA IS RECRUITING ARTISTS WHO WON'T STAY SILENT IN THE FACE OF INJUSTICE ★ BREAKING: ART DOESN'T WAIT FOR PERMISSION ★ ESPACIO MANZANA IS RECRUITING ARTISTS WHO WON'T STAY SILENT IN THE FACE OF INJUSTICE ★</span>
+    </div>
+  </div>
+
+  <!-- STAMP BADGE -->
+  <div style="position: relative;">
+    <div style="position: absolute; top: 8px; right: 18px; width: 52px; height: 52px; border-radius: 50%; border: 1.5px solid var(--porcelain); display: flex; align-items: center; justify-content: center; transform: rotate(-17deg); z-index: 30;">
+      <img src="em-logo-full-porcelain.png" alt="Espacio Manzana seal" style="width: 32px; height: 31px; display: block">
+    </div>
+  </div>
+
+  <!-- STACKED BLOCKS -->
+  <div style="position: relative; padding: 42px 0 60px;">
+
+    <!-- 1. MISSION -->
+    <div class="band" data-band="m-mission" style="margin: 0 16px; padding: 22px 20px; display: flex; flex-direction: column; gap: 14px; background-color: #A01E20; box-shadow: 0 10px 20px rgba(0,0,0,0.3);">
+      <div style="display: flex; align-items: center; justify-content: space-between;">
+        <div style="font-weight: 900; font-size: 32px; line-height: 1; color: #F3ECE0">PICK A SIDE.</div>
+        <img src="seed-porcelain.png" alt="" style="width: 26px; height: auto; display: block;">
+      </div>
+      <div data-label data-expanded-text="SEEN ENOUGH? ↑" style="font-size: 10px; letter-spacing: 0.06em; color: #F3ECE0; opacity: 0.6">TAP FOR MORE ↓</div>
+      <div class="expand" style="font-weight: 400; font-size: 14px; line-height: 1.65; color: #f3ece0; border-top: 1px solid rgba(45,45,45,0.2); padding-top: 14px">Neutrality is a choice too, and not an innocent one. Espacio Manzana uses art as a method to walk in solidarity with the Global South and the marginalised communities in the south of Spain, giving platform to the people and causes the world too often looks away from. We don't try to convince the unconvinced. This space is for the ones who've already chosen.</div>
+    </div>
+
+    <!-- 2. METHOD -->
+    <div class="band" data-band="m-method" style="margin: -8px 16px 0; padding: 22px 20px; display: flex; flex-direction: column; gap: 14px; background-color: #F3ECE0; box-shadow: 0 10px 20px rgba(0,0,0,0.3);">
+      <div style="display: flex; align-items: center; justify-content: space-between;">
+        <div style="font-weight: 900; font-size: 24px; line-height: 1.05; color: #2D2D2D">ART AS THE METHOD</div>
+        <img src="seed-darkgrey.png" alt="" style="width: 26px; height: auto; display: block; flex-shrink: 0;">
+      </div>
+      <div class="expand" style="font-weight: 400; font-size: 14px; line-height: 1.65; color: #2d2d2d; border-top: 1px solid rgba(45,45,45,0.15); padding-top: 14px">We don't platform art for art's sake. We work with artists, for the communities the mainstream overlooks, rooted in Andalucía, reaching the marginalised across Spain, and extending to Lebanon, Palestine, and Syria. Does your art belong here?</div>
+      <div data-label data-expanded-text="GOT IT ↑" style="font-size: 10px; letter-spacing: 0.06em; color: #2D2D2D; opacity: 0.6">TAP FOR MORE ↓</div>
+    </div>
+
+    <!-- 3. COMMUNITY -->
+    <div class="band" data-band="m-community" style="background: var(--teal); margin: -8px 16px 0; padding: 22px 20px; display: flex; flex-direction: column; gap: 14px; box-shadow: 0 10px 20px rgba(0,0,0,0.3);">
+      <div style="display: flex; align-items: center; justify-content: space-between;">
+        <div style="font-family: 'Amatic SC', cursive; font-weight: 700; font-size: 46px; line-height: 0.9; color: var(--amber);">YOU BELONG HERE</div>
+        <img src="seed-amber.png" alt="" style="width: 26px; height: auto; display: block; flex-shrink: 0;">
+      </div>
+      <div class="expand expand-flex" style="border-top: 1px solid rgba(243,236,224,0.3); padding-top: 14px; flex-direction: column; gap: 10px;">
+        <a class="cta-pill" href="mailto:mail.espacio.manzana@gmail.com?subject=Joining%20the%20Espacio%20Manzana%20community" style="background: var(--porcelain); color: var(--teal); padding: 14px 20px; border-radius: 24px; font-weight: 600; font-size: 14px; text-align: center;">Artists &amp; Artivists<br>~ JOIN OUR COMMUNITY ~</a>
+        <a class="cta-pill" href="mailto:mail.espacio.manzana@gmail.com?subject=Collaboration%20with%20Espacio%20Manzana" style="background: var(--porcelain); color: var(--teal); padding: 14px 20px; border-radius: 24px; font-weight: 600; font-size: 14px; text-align: center;">Collaborators &amp; Partners<br>~ GET IN TOUCH ~</a>
+      </div>
+      <div data-label data-expanded-text="MAYBE LATER ↑" style="font-size: 10px; letter-spacing: 0.06em; color: var(--porcelain); opacity: 0.75;">JOIN OUR COMMUNITY ↓</div>
+    </div>
+
+    <!-- 4. PROJECTS -->
+    <div class="band" data-band="m-projects" style="background: var(--amber); margin: -8px 16px 0; padding: 22px 20px; display: flex; flex-direction: column; gap: 16px; box-shadow: 0 10px 20px rgba(0,0,0,0.3);">
+      <div style="display: flex; align-items: center; justify-content: space-between;">
+        <div style="font-weight: 700; font-size: 21px; line-height: 1.05; color: var(--dark-grey)">PROJECTS AND WORK IN PROGRESS</div>
+        <img src="seed-darkgrey.png" alt="" style="width: 26px; height: auto; display: block; flex-shrink: 0;">
+      </div>
+
+      <div class="expand expand-flex" style="border-top: 1px solid rgba(45,45,45,0.25); padding-top: 16px; flex-direction: column; gap: 10px;">
+
+        <div class="tile" style="background: var(--dark-grey); padding: 18px; display: flex; flex-direction: column; gap: 5px;">
+          <div style="font-size: 10px; letter-spacing: 0.1em; color: var(--amber); text-transform: uppercase;">Fundraising event</div>
+          <div style="font-weight: 900; font-size: 30px; line-height: 1; color: var(--porcelain);">FEB 2027</div>
+          <div style="font-weight: 700; font-size: 15px; color: var(--porcelain); margin-top: 2px;">The Ecology of Activism</div>
+          <div style="font-size: 11.5px; color: var(--porcelain); opacity: 0.65;">Stay tuned.</div>
+        </div>
+
+        <div class="tile" style="border: 1px dashed #2d2d2d; display: flex; align-items: center; justify-content: center; text-align: center; padding: 16px;">
+          <div style="font-size: 11px; color: var(--dark-grey); opacity: 0.6; letter-spacing: 0.05em; line-height: 1.5;">EVENT PHOTOS<br>COMING FEB 2027</div>
+        </div>
+
+        <div class="tile" style="padding: 16px 18px; display: flex; flex-direction: column; gap: 6px; background-color: transparent; border: 1px dotted #2d2d2d;">
+          <div style="font-weight: 700; font-size: 15px; color: #2d2d2d; line-height: 1.25">A new home for marginalised voices</div>
+          <div style="font-size: 12px; color: #2d2d2d; opacity: 0.8; line-height: 1.45">An art platform partnership supporting artists across Spain and the SWANA region is in the works.</div>
+          <div style="font-weight: 600; font-size: 12px; color: #f3ece0; margin-top: 2px; display: inline-block; padding: 5px 10px; background-color: #2D2D2D;">Want in? Contact us →</div>
+        </div>
+
+        <div class="tile" style="border: 1px dashed rgba(45,45,45,0.4); display: flex; align-items: center; justify-content: center; text-align: center; padding: 16px; background-color: #00746A; color: #f3ece0">
+          <div style="font-size: 11px; color: #f3ece0; opacity: 0.6; letter-spacing: 0.05em; line-height: 1.5">PARTNERSHIP PHOTOS<br>COMING SOON</div>
+        </div>
+
+        <div class="tile" style="background: var(--fire-red); padding: 18px; display: flex; align-items: center;">
+          <div style="font-weight: 900; font-size: 16px; line-height: 1.35; color: var(--porcelain);">We measure success in causes moved, not audiences built.</div>
+        </div>
+
+        <div class="tile" style="background: var(--porcelain); border: 1px solid rgba(45,45,45,0.2); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 4px; padding: 16px;">
+          <div style="font-size: 10px; letter-spacing: 0.1em; color: var(--dark-grey); opacity: 0.55; text-transform: uppercase;">Follow along</div>
+          <div style="font-weight: 700; font-size: 15px; color: var(--dark-grey);">@espacio.manzana</div>
+        </div>
+
+      </div>
+
+      <div data-label data-expanded-text="CLOSE THE GRID ↑" style="font-size: 10px; letter-spacing: 0.06em; color: var(--dark-grey); opacity: 0.65;">TAP TO SEE THE GRID ↓</div>
+    </div>
+
+    <!-- 5. NOTES FROM THE APPLE -->
+    <div class="band" data-band="m-notes" style="background: var(--indigo); margin: -8px 16px 0; padding: 22px 20px; display: flex; flex-direction: column; gap: 14px; box-shadow: 0 10px 20px rgba(0,0,0,0.3);">
+      <div style="display: flex; align-items: center; justify-content: space-between;">
+        <div style="font-weight: 900; font-style: italic; font-size: 30px; line-height: 1; color: var(--amber);"><span style="font-style: normal; color: #F3ECE0; font-size: 27px; font-family: 'Amatic SC', cursive;">Notes from the Apple</span></div>
+        <img src="seed-porcelain.png" alt="" style="width: 26px; height: auto; display: block; flex-shrink: 0;">
+      </div>
+      <div data-label data-expanded-text="THAT'S ALL FOR NOW ↑" style="font-size: 10px; letter-spacing: 0.06em; color: var(--porcelain); opacity: 0.65;">TAP FOR A PEEK ↓</div>
+      <div class="expand" style="font-weight: 400; font-size: 14px; line-height: 1.65; color: var(--porcelain); border-top: 1px solid rgba(243,236,224,0.25); padding-top: 14px;">Coming soon. Longer-form writing on artivism, straight on our Substack account. <br>Follow us on IG for now <a href="https://instagram.com/espacio.manzana" target="_blank" rel="noopener noreferrer" style="color: var(--amber); text-decoration: underline;">@espacio.manzana</a>&nbsp;:)</div>
+    </div>
+
+  </div>
+
+  <!-- CONTACT / FOOTER -->
+  <div style="padding: 40px 18px 28px;">
+    <div style="padding-bottom: 32px; border-bottom: 1px solid rgba(243,236,224,0.15);">
+      <div style="font-family: 'Amatic SC', cursive; font-weight: 700; font-size: 40px; line-height: 1; color: var(--porcelain); margin-bottom: 20px;">Let's talk.</div>
+      <div style="display: flex; flex-direction: column; gap: 16px;">
+        <div style="display: flex; flex-direction: column; gap: 5px;">
+          <div style="font-size: 10px; letter-spacing: 0.1em; color: var(--amber); text-transform: uppercase;">Email</div>
+          <div style="font-size: 13px; color: var(--porcelain);">mail.espacio.manzana@gmail.com</div>
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 5px;">
+          <div style="font-size: 10px; letter-spacing: 0.1em; color: var(--amber); text-transform: uppercase;">Instagram</div>
+          <div style="font-size: 13px; color: var(--porcelain);">@espacio.manzana</div>
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 5px;">
+          <div style="font-size: 10px; letter-spacing: 0.1em; color: var(--amber); text-transform: uppercase;">Location</div>
+          <div style="font-size: 13px; color: var(--porcelain);">La Herradura, Granada, Spain</div>
+        </div>
+      </div>
+    </div>
+
+    <div style="display: flex; flex-direction: column; gap: 18px; padding-top: 22px;">
+      <div style="display: flex; align-items: center; gap: 14px;">
+        <img src="junta-andalucia-logo.png" alt="Junta de Andalucía" style="height: 22px; width: auto; display: block; opacity: 0.92; flex-shrink: 0;">
+        <div style="font-size: 9.5px; line-height: 1.5; color: var(--porcelain); opacity: 0.5;">Registro de Asociaciones de Andalucía · Nº 18/12449-1ª, Sección Primera<br>Almuñécar, Granada</div>
+      </div>
+      <div style="display: flex; align-items: center; justify-content: space-between;">
+        <div style="font-size: 11px; color: var(--porcelain); opacity: 0.45;">© 2026 Espacio Manzana</div>
+        <a href="https://instagram.com/espacio.manzana" target="_blank" rel="noopener noreferrer" aria-label="Espacio Manzana on Instagram" style="width: 28px; height: 28px; border-radius: 50%; border: 1.5px solid rgba(243,236,224,0.4); display: flex; align-items: center; justify-content: center; cursor: pointer;">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><rect x="2" y="2" width="20" height="20" rx="6" stroke="#F3ECE0" stroke-width="1.8"></rect><circle cx="12" cy="12" r="5" stroke="#F3ECE0" stroke-width="1.8"></circle><circle cx="18" cy="6" r="1.2" fill="#F3ECE0"></circle></svg>
+        </a>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<script>
+  document.addEventListener('click', function (e) {
+    if (e.target.closest('a')) return; // let real links (mailto, Instagram) work normally
+    var band = e.target.closest('[data-band]');
+    if (!band) return;
+    var isOpen = band.classList.toggle('is-open');
+    var label = band.querySelector('[data-label]');
+    if (!label) return;
+    if (isOpen) {
+      if (!label.dataset.collapsedText) label.dataset.collapsedText = label.textContent;
+      label.textContent = label.dataset.expandedText;
+    } else {
+      label.textContent = label.dataset.collapsedText;
+    }
+  });
+</script>
+
+</body>
+</html>
